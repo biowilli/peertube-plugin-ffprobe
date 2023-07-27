@@ -1,0 +1,54 @@
+{
+  "name": "peertube-plugin-ffprobe",
+  "description": "ffprobe used directly to extract metadata from a media file.",
+  "version": "0.0.1",
+  "author": "biowilli",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/biowilli/peertube-plugin-ffprobe.git"
+  },
+  "license": "AGPL-3.0",
+  "bugs": "https://github.com/biowilli/peertube-plugin-ffprobe/issues",
+  "clientScripts": [
+    {
+      "script": "client/video-watch-client-plugin.js",
+      "scopes": [
+        "video-watch"
+      ]
+    }
+  ],
+  "css": [],
+  "devDependencies": {
+    "@peertube/peertube-types": "^5.1.0",
+    "@purtuga/esm-webpack-plugin": "^1.1.1",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10"
+  },
+  "engine": {
+    "peertube": ">=3.4.0"
+  },
+  "homepage": "https://fairkom.eu",
+  "keywords": [
+    "peertube-plugin-ffprobe",
+    "peertube",
+    "plugin",
+    "ffprobe",
+    "disable",
+    "comment",
+    "commentsection",
+    "fairkom"
+  ],
+  "library": "./main.js",
+  "scripts": {
+    "prepare": "npm run build",
+    "build": "webpack --mode=production"
+  },
+  "staticDirs": {},
+  "translations": {},
+  "dependencies": {
+    "ffprobe": "^1.1.2",
+    "ffprobe-static": "^3.1.0",
+    "fs": "^0.0.1-security",
+    "sequelize": "^6.32.1"
+  }
+}
