@@ -1,0 +1,12 @@
+.attribute-ffprobe {
+  font-size: 13px;
+  margin-bottom: 12px;
+}
+
+.attribute-label-ffprobe {
+  min-width: 142px;
+  padding-right: 5px;
+  display: inline-block;
+  color: var(--greyForegroundColor);
+  font-weight: 700;
+}
