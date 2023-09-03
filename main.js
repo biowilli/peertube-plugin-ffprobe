@@ -1,12 +1,44 @@
-//TODO: API Daten abrufen lassen, ansprechen lassen
-//TODO:  
 const { initffprobeController }  = require("./controller/ffprobe.js");
 
-async function register({ registerHook, storageManager,getRouter, peertubeHelpers: {
+async function register({ registerHook, storageManager,getRouter, registerSetting, settingsManager, peertubeHelpers: {
   videos: peertubeVideosHelpers, 
 }}) {
-  var router = getRouter();
-  initffprobeController(router, storageManager);
+
+  registerSetting({
+    name: 'ffprobe-active',
+    label: 'ffprobe activated',
+    type: 'input-checkbox',
+    descriptionHTML: 'enables/disables ffprobe plugin functionality',
+    default: 'true',
+    private: false
+  })
+
+  registerSetting({
+    name: 'ffprobe-api-active',
+    label: 'ffprobe api activated',
+    type: 'input-checkbox',
+    descriptionHTML: 'enables/disables ffprobe api',
+    default: 'true',
+    private: false
+  })
+
+  registerSetting({
+    name: 'ffprobe-view-active',
+    label: 'ffprobe view activated',
+    type: 'input-checkbox',
+    descriptionHTML: 'enables/disables ffprobe view under a video',
+    default: 'true',
+    private: false
+  })
+  
+  const ffprobeActive = await settingsManager.getSetting('ffprobe-active')
+  if (!ffprobeActive) return;
+
+  const ffprobeApiActive = await settingsManager.getSetting('ffprobe-api-active')
+  if (ffprobeApiActive) {
+    var router = getRouter();
+    initffprobeController(router, storageManager);
+  }
 
   registerHook({
     target: "action:api.video.uploaded",
