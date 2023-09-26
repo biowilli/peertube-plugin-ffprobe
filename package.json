@@ -1,7 +1,7 @@
 {
   "name": "peertube-plugin-ffprobe",
-  "description": "ffprobe used directly to extract metadata from a media file.",
-  "version": "0.1.0",
+  "description": "This plugin using ffprobe to extract metadata from a media file.",
+  "version": "0.2.0",
   "author": "biowilli",
   "repository": {
     "type": "git",
